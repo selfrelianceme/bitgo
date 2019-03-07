@@ -23,4 +23,17 @@ return [
      * Seen in page put in coin -> Settings -> Wallet ID
      */
     'wallet_id_btc'     => env('BITGO_WALLET_ID_BTC','bitgo_wallet_id_btc'),
+
+    /**
+     * Wallet id in BitGo service for Dash
+     * Seen in page put in coin -> Settings -> Wallet ID
+     */
+    'wallet_id_dash'     => env('BITGO_WALLET_ID_DASH','bitgo_wallet_id_dash'),
+
+    /**
+     * Wallet id in BitGo service for Litecoin
+     * Seen in page put in coin -> Settings -> Wallet ID
+     */
+    'wallet_id_ltc'     => env('BITGO_WALLET_ID_LTC','bitgo_wallet_id_ltc'),
+
 ];
