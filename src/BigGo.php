@@ -58,7 +58,7 @@ class BitGo {
      * @return string
      */
     public function balance($unit = "USD"){
-        $resp = $this->call_api('GET',$unit,'balances','',false);
+        $resp = $this->call_api('GET',$unit,'balances',[],false);
         $balance = number($resp->balance / 1000000000,8);
         $confirmedBalance = number($resp->confirmedBalance / 1000000000,8);
         $spendableBalance = number($resp->spendableBalance / 1000000000,8);
