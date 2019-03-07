@@ -1,0 +1,30 @@
+{
+  "name": "selfreliance/bitgo",
+  "type": "library",
+  "description": "Bitgo payment system for laravel",
+  "keywords": ["laravel"],
+  "homepage": "https://github.com/selfrelianceme/bitgo",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Vlad Kit",
+      "email": "vladwebkit@gmail.com"
+    }
+  ],
+  "extra": {
+    "laravel":{
+      "providers": [
+        "Selfreliance\\BitGo\\BitGoServiceProvider"
+      ]
+    }
+  },
+  "require": {
+    "php": ">=7.1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.8"
+  },
+  "autoload": {
+    "psr-4": {"Selfreliance\\BitGo\\": "src/"}
+  }
+}
