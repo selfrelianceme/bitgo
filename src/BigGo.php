@@ -100,7 +100,7 @@ class BitGo {
         $PassData->transaction = $resp->txid;
         $PassData->sending     = true;
         $PassData->add_info    = [
-            "fee"       => number($resp->transfer->feeString/1000000000, 8),
+            "fee"       => number($resp->transfer->feeString/100000000, 8),
             "full_data" => $resp
         ];
         return $PassData;

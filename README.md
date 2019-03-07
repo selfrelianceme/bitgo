@@ -18,7 +18,7 @@ use Selfreliance\BitGo\BitGo;
 
 ## Configuration
 
-Add `BITGO_SERVER`, `BITGO_WALLET_PASSPHRASE`, `BITGO_TOKEN` and `BITGO_WALLET_ID_BTC` to **.env** file:
+Add to **.env** file:
 
 ```
 #BitGo_Settings
@@ -28,4 +28,7 @@ BITGO_TOKEN=
 BITGO_WALLET_ID_BTC=
 BITGO_WALLET_ID_DASH=
 BITGO_WALLET_ID_LTC=
+BITGO_WALLET_ID_XLM=
+BITGO_WALLET_ID_ZEC=
+BITGO_WALLET_ID_BCH=
 ```
