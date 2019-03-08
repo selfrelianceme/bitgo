@@ -173,8 +173,9 @@ class BitGo {
         $unit = strtolower($unit);
         $wallet_id = config()->get('bitgo.wallet_id_'.$unit);
         try {
+            $fields = ($method == 'GET') ? 'query' : 'json';
             $opt = [
-                'query'    => $options,
+                $fields    => $options,
                 'headers' => $this->header
             ];
             $url_wallet_id = ($need_wallet_id) ? '/'.$wallet_id.'/' : '/';
