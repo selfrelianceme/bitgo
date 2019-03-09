@@ -6,19 +6,19 @@ use Selfreliance\BitGo\BitGo;
 use Tests\TestCase;
 use Config;
 use Carbon\Carbon;
-class PayeerHandlerPayments extends TestCase
+class BitGoTest extends TestCase
 {
 
     public function testBalance()
     {
         $bigo = new BitGo('http://localhost:3080/api/v2/');
-        $balance = $bigo->balance('btc');
+        $balance = $bigo->balance('xlm');
         dd($balance);
     }
 
     public function testForm(){
         $bigo = new BitGo();
-        $res_form = $bigo->form(1, 0, 'btc');
+        $res_form = $bigo->form(1, 0, 'xlm');
         dd($res_form);
     }
 

@@ -59,9 +59,17 @@ class BitGo {
      */
     public function balance($unit = "USD"){
         $resp = $this->call_api('GET',$unit,'balances',[],false);
-        $balance = number($resp->balance / 100000000,8);
-        $confirmedBalance = number($resp->confirmedBalance / 100000000,8);
-        $spendableBalance = number($resp->spendableBalance / 100000000,8);
+        $points = 100000000;
+        $after = 8;
+        if($unit == 'XLM'){
+            $points = 10000000;
+            $after = 7;
+        }
+
+        $balance = number($resp->balanceString / $points,$after);
+        $confirmedBalance = number($resp->confirmedBalanceString / $points,$after);
+        $spendableBalance = number($resp->spendableBalanceString / $points,$after);
+
         return 'Balance '.$balance." | Confirmed ".$confirmedBalance.' | Spendable '.$spendableBalance;
     }
 
@@ -74,6 +82,7 @@ class BitGo {
      */
     public function form($payment_id,$sum,$unit = 'USD'){
         $resp = $this->call_api('POST',$unit,'address',['label' => $payment_id.', '.$sum]);
+        dd($resp);
         $PassData = new \stdClass();
         $PassData->address = $resp->address;
         $PassData->another_site = false;
