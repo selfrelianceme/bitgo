@@ -5,7 +5,7 @@ return [
      * BitGo server for call api
      * Recommendation use local node.js server by BitGo Express
      */
-    'bitgo_server'      => env('BITGO_SERVER','http://localhost:3080/api/v2/'),
+    'bitgo_server'      => env('BITGO_SERVER','https://www.bitgo.com/api/v2'),
 
     /**
      * Password for account in BitGo system
