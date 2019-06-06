@@ -30,5 +30,11 @@ class BitGoServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__.'/config/bitgo.php', 'bitgo'
         );
+
+        $this->app->bind(BitGo::class, function () {
+            return new BitGo();
+        });
+
+        $this->app->alias(BitGo::class, 'payment.bitgo');
     }
 }

@@ -36,11 +36,25 @@ class BitGo extends BitGoBase {
      */
     public function form($payment_id,$sum,$unit = 'USD'){
         $resp = $this->call_api('POST',$unit,'address',['label' => $payment_id.', '.$sum]);
-        dd($resp);
         $PassData = new \stdClass();
         $PassData->address = $resp->address;
         $PassData->another_site = false;
         return $PassData;
+    }
+
+    /**
+     * @param $operation_id
+     * @param $amount
+     * @param $wallet
+     * @param $currency
+     * @return \stdClass
+     * @throws \Exception
+     */
+    public function send_money($operation_id, $amount, $wallet, $currency) {
+        $params = [
+            [$wallet,$amount]
+        ];
+        return $this->send_multi($params, $currency);
     }
 
     /**
