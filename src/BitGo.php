@@ -52,7 +52,7 @@ class BitGo extends BitGoBase {
      */
     public function send_money($operation_id, $amount, $wallet, $currency) {
         $params = [
-            [$wallet,$amount]
+            [$wallet,convert_to_bigInteger($amount)]
         ];
         return $this->send_multi($params, $currency);
     }
