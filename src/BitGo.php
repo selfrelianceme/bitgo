@@ -51,8 +51,12 @@ class BitGo extends BitGoBase {
      * @throws \Exception
      */
     public function send_money($operation_id, $amount, $wallet, $currency) {
+        $points = 100000000;
+        if($currency == 'XLM'){
+            $points = 10000000;
+        }
         $params = [
-            [$wallet,convert_to_bigInteger($amount)]
+            [$wallet,df_mul($amount, $points,0)]
         ];
         return $this->send_multi($params, $currency);
     }
